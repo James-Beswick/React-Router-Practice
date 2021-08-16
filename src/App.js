@@ -1,8 +1,14 @@
+import { Fragment } from 'react';
+import { Route } from 'react-router-dom';
+import AllQuotes from './pages/AllQuotes';
+
 function App() {
   return (
-    <div>
-
-    </div>
+    <Fragment>
+      <Route path="/all-quotes">
+        <AllQuotes />
+      </Route>
+    </Fragment>
   );
 }
 
