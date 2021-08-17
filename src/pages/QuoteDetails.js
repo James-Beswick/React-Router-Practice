@@ -14,7 +14,7 @@ const QuoteDetails = () => {
 
   return (
     <section>
-      <HighlightedQuote />
+      <HighlightedQuote author={params.author} text={params.text} />
       <Comments />
       <Card>
         <CommentsList comments={comments} />
