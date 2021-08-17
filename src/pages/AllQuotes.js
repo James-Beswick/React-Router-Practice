@@ -1,4 +1,5 @@
 import QuoteList from '../components/quotes/QuoteList';
+import Card from '../components/UI/Card';
 
 const quoteList = [
   {
@@ -15,10 +16,10 @@ const quoteList = [
 
 const AllQuotes = props => {
   return (
-    <section>
+    <Card>
       <h1>All Quotes</h1>
       <QuoteList quotes={quoteList} />
-    </section>
+    </Card>
   );
 };
 

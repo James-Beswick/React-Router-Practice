@@ -1,13 +1,13 @@
-import { Fragment } from 'react';
+import Card from '../UI/Card';
 
 import QuoteItem from './QuoteItem';
 import classes from './QuoteList.module.css';
 
-const QuoteList = (props) => {
+const QuoteList = props => {
   return (
-    <Fragment>
+    <Card>
       <ul className={classes.list}>
-        {props.quotes.map((quote) => (
+        {props.quotes.map(quote => (
           <QuoteItem
             key={quote.id}
             id={quote.id}
@@ -16,7 +16,7 @@ const QuoteList = (props) => {
           />
         ))}
       </ul>
-    </Fragment>
+    </Card>
   );
 };
 
