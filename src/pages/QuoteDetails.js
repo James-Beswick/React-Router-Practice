@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import Comments from '../components/comments/Comments';
 import CommentsList from '../components/comments/CommentsList';
@@ -10,11 +10,12 @@ const comments = [
 ];
 
 const QuoteDetails = () => {
-  const params = useParams();
+  const location = useLocation();
+  const { author, text } = location.state;
 
   return (
     <section>
-      <HighlightedQuote author={params.author} text={params.text} />
+      <HighlightedQuote author={author} text={text} />
       <Comments />
       <Card>
         <CommentsList comments={comments} />

@@ -10,7 +10,7 @@ const quoteList = [
   {
     id: 'q3',
     author: 'Semaj',
-    text: "But where did quote two go? I don't know -_:)_-",
+    text: "But where did quote two go? I don't know -\\_:)_/-",
   },
 ]; //dummy data for the mo.
 
