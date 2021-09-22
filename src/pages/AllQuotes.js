@@ -4,19 +4,15 @@ import Card from '../components/UI/Card';
 import classes from './AllQuotes.module.css';
 import MainNavigation from '../components/layout/MainNavigation';
 
-const dummy = [
-  {
-    id: 1,
-    text: 'yada yada yada',
-    author: 'me',
-  },
-];
-
 const AllQuotes = () => {
   const [quotes, setQuotes] = useState([]);
 
   const fetchQuotesHandler = async () => {
     try {
+      if (quotes.length > 0) {
+        return;
+      }
+
       const res = await fetch('https://type.fit/api/quotes/?_limit=10');
 
       if (!res.ok) {
@@ -46,7 +42,9 @@ const AllQuotes = () => {
       <Card>
         <span className={classes.h1ButtonSpan}>
           <h1>All Quotes</h1>
-          <button onClick={fetchQuotesHandler}>Generate Quotes</button>
+          <button className="btn" onClick={fetchQuotesHandler}>
+            Generate Quotes
+          </button>
         </span>
         <QuoteList quotes={quotes} />
       </Card>
