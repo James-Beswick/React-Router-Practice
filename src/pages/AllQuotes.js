@@ -1,11 +1,13 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import QuoteList from '../components/quotes/QuoteList';
 import Card from '../components/UI/Card';
 import classes from './AllQuotes.module.css';
 import MainNavigation from '../components/layout/MainNavigation';
+import NoQuotesFound from '../components/quotes/NoQuotesFound';
 
 const AllQuotes = () => {
   const [quotes, setQuotes] = useState([]);
+  const [quotesLoaded, setQuotesLoaded] = useState(false);
 
   const fetchQuotesHandler = async () => {
     try {
@@ -36,6 +38,14 @@ const AllQuotes = () => {
     }
   };
 
+  useEffect(() => {
+    if (quotes.length > 0) {
+      setQuotesLoaded(true);
+    } else {
+      setQuotesLoaded(false);
+    }
+  }, [quotes.length]);
+
   return (
     <Fragment>
       <MainNavigation />
@@ -46,7 +56,7 @@ const AllQuotes = () => {
             Generate Quotes
           </button>
         </span>
-        <QuoteList quotes={quotes} />
+        {quotesLoaded ? <QuoteList quotes={quotes} /> : <NoQuotesFound />}
       </Card>
     </Fragment>
   );

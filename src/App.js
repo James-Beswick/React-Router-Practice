@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import QuoteForm from './components/quotes/QuoteForm';
+import AddQuote from './pages/AddQuote';
 import AllQuotes from './pages/AllQuotes';
 import QuoteDetails from './pages/QuoteDetails';
 
@@ -18,7 +18,7 @@ function App() {
           <QuoteDetails />
         </Route>
         <Route path="/new-quote">
-          <QuoteForm />
+          <AddQuote />
         </Route>
       </Switch>
     </Fragment>
