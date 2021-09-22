@@ -8,7 +8,9 @@ const AddQuote = props => {
 
   const addQuoteHandler = data => {
     setIsLoading(true);
-    props.passQuote(data);
+    const dataList = [];
+    dataList.push({ ...data });
+    props.passQuote(dataList);
     setIsLoading(false);
   };
   return (

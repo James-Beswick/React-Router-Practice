@@ -39,8 +39,8 @@ const AllQuotes = props => {
   };
 
   useEffect(() => {
-    if (props.createdQuotes.length > 1) {
-      const newData = { ...props.createdQuotes };
+    if (props.createdQuotes) {
+      const newData = [...props.createdQuotes];
       setQuotes(newData);
     }
 
