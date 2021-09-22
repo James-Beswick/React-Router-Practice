@@ -1,7 +1,9 @@
+import { Fragment } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import Comments from '../components/comments/Comments';
 import CommentsList from '../components/comments/CommentsList';
+import MainNavigation from '../components/layout/MainNavigation';
 import HighlightedQuote from '../components/quotes/HighlightedQuote';
 import Card from '../components/UI/Card';
 
@@ -14,13 +16,16 @@ const QuoteDetails = () => {
   const { author, text } = location.state;
 
   return (
-    <section>
-      <HighlightedQuote author={author} text={text} />
-      <Comments />
-      <Card>
-        <CommentsList comments={comments} />
-      </Card>
-    </section>
+    <Fragment>
+      <MainNavigation />
+      <section>
+        <HighlightedQuote author={author} text={text} />
+        <Comments />
+        <Card>
+          <CommentsList comments={comments} />
+        </Card>
+      </section>
+    </Fragment>
   );
 };
 

@@ -7,7 +7,7 @@ const MainNavigation = () => {
       <nav className={classes.nav}>
         <ul>
           <li>
-            <Link>Home</Link>
+            <Link to="/quotes">Home</Link>
           </li>
         </ul>
       </nav>
