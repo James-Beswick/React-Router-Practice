@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import QuoteList from '../components/quotes/QuoteList';
 import Card from '../components/UI/Card';
 import classes from './AllQuotes.module.css';
+import MainNavigation from '../components/layout/MainNavigation';
 
 const dummy = [
   {
@@ -40,13 +41,16 @@ const AllQuotes = () => {
   };
 
   return (
-    <Card>
-      <span className={classes.h1ButtonSpan}>
-        <h1>All Quotes</h1>
-        <button onClick={fetchQuotesHandler}>Generate Quotes</button>
-      </span>
-      <QuoteList quotes={quotes} />
-    </Card>
+    <Fragment>
+      <MainNavigation />
+      <Card>
+        <span className={classes.h1ButtonSpan}>
+          <h1>All Quotes</h1>
+          <button onClick={fetchQuotesHandler}>Generate Quotes</button>
+        </span>
+        <QuoteList quotes={quotes} />
+      </Card>
+    </Fragment>
   );
 };
 

@@ -14,3 +14,5 @@ const MainNavigation = () => {
     </header>
   );
 };
+
+export default MainNavigation;
