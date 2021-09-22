@@ -5,6 +5,10 @@ import AllQuotes from './pages/AllQuotes';
 import QuoteDetails from './pages/QuoteDetails';
 
 function App() {
+  let quoteData;
+  const passQuoteHandler = data => {
+    quoteData = { ...data };
+  };
   return (
     <Fragment>
       <Switch>
@@ -12,13 +16,13 @@ function App() {
           <Redirect to="/quotes" />
         </Route>
         <Route path="/quotes" exact>
-          <AllQuotes />
+          <AllQuotes createdQuotes={quoteData} />
         </Route>
         <Route path="/quotes/:id">
           <QuoteDetails />
         </Route>
         <Route path="/new-quote">
-          <AddQuote />
+          <AddQuote passQuote={passQuoteHandler} />
         </Route>
       </Switch>
     </Fragment>

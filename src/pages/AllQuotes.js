@@ -5,7 +5,7 @@ import classes from './AllQuotes.module.css';
 import MainNavigation from '../components/layout/MainNavigation';
 import NoQuotesFound from '../components/quotes/NoQuotesFound';
 
-const AllQuotes = () => {
+const AllQuotes = props => {
   const [quotes, setQuotes] = useState([]);
   const [quotesLoaded, setQuotesLoaded] = useState(false);
 
@@ -39,12 +39,17 @@ const AllQuotes = () => {
   };
 
   useEffect(() => {
+    if (props.createdQuotes.length > 1) {
+      const newData = { ...props.createdQuotes };
+      setQuotes(newData);
+    }
+
     if (quotes.length > 0) {
       setQuotesLoaded(true);
     } else {
       setQuotesLoaded(false);
     }
-  }, [quotes.length]);
+  }, [quotes.length, props.createdQuotes]);
 
   return (
     <Fragment>
