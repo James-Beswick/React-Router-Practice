@@ -5,10 +5,6 @@ import AllQuotes from './pages/AllQuotes';
 import QuoteDetails from './pages/QuoteDetails';
 
 function App() {
-  let quoteData;
-  const passQuoteHandler = data => {
-    quoteData = { ...data };
-  };
   return (
     <Fragment>
       <Switch>
@@ -22,7 +18,7 @@ function App() {
           <QuoteDetails />
         </Route>
         <Route path="/new-quote">
-          <AddQuote passQuote={passQuoteHandler} />
+          <AddQuote />
         </Route>
       </Switch>
     </Fragment>

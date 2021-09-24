@@ -15,7 +15,7 @@ const AllQuotes = props => {
         return;
       }
 
-      const res = await fetch('https://type.fit/api/quotes/?_limit=10');
+      const res = await fetch('https://type.fit/api/quotes/');
 
       if (!res.ok) {
         throw new Error('Something Went Wrong!');
