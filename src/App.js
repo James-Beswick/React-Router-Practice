@@ -12,7 +12,7 @@ function App() {
           <Redirect to="/quotes" />
         </Route>
         <Route path="/quotes" exact>
-          <AllQuotes createdQuotes={quoteData} />
+          <AllQuotes />
         </Route>
         <Route path="/quotes/:id">
           <QuoteDetails />

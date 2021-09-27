@@ -5,7 +5,7 @@ import classes from './AllQuotes.module.css';
 import MainNavigation from '../components/layout/MainNavigation';
 import NoQuotesFound from '../components/quotes/NoQuotesFound';
 
-const AllQuotes = props => {
+const AllQuotes = () => {
   const [quotes, setQuotes] = useState([]);
   const [quotesLoaded, setQuotesLoaded] = useState(false);
 
@@ -31,25 +31,46 @@ const AllQuotes = props => {
           author: data[key].author,
         });
       }
-
       setQuotes(quoteList);
+      setQuotesLoaded(true);
     } catch (err) {
       console.log(err);
     }
   };
 
-  useEffect(() => {
-    if (props.createdQuotes) {
-      const newData = [...props.createdQuotes];
-      setQuotes(newData);
-    }
+  // useEffect(() => {
+  //   // const abortController = new AbortController();
 
-    if (quotes.length > 0) {
-      setQuotesLoaded(true);
-    } else {
-      setQuotesLoaded(false);
-    }
-  }, [quotes.length, props.createdQuotes]);
+  //   const fetchUserQuotesHandler = async () => {
+  //     try {
+  //       const res = await fetch(
+  //         'https://user-comments-project-default-rtdb.europe-west1.firebasedatabase.app/user-comments.json'
+  //         // {
+  //         //   signal: abortController.signal,
+  //         // }
+  //       );
+
+  //       if (!res.ok) {
+  //         throw new Error('Failed to fetch user quotes');
+  //       }
+
+  //       const data = await res.json();
+
+  //       let userQuotes = [...quotes];
+  //       userQuotes.push(data);
+
+  //       setQuotes(userQuotes);
+  //     } catch (err) {
+  //       console.log(err);
+  //     }
+  //   };
+
+  //   fetchUserQuotesHandler();
+
+  //   // return () => {
+  //   //   abortController.abort();
+  //   // };
+  // });
 
   return (
     <Fragment>

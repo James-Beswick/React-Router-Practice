@@ -14,11 +14,16 @@ const QuoteForm = () => {
   const postQuoteHandler = async data => {
     try {
       setIsLoading(true);
+
+      const userComment = {
+        ...data,
+      };
+
       const res = await fetch(
         'https://user-comments-project-default-rtdb.europe-west1.firebasedatabase.app/user-comments.json',
         {
           method: 'POST',
-          body: JSON.stringify(data),
+          body: JSON.stringify(userComment),
           headers: {
             'Content-Type': 'application/json',
           },
