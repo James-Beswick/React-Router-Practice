@@ -11,11 +11,6 @@ const MainNavigation = () => {
               <h1>Home</h1>
             </Link>
           </li>
-          <li>
-            <Link to="new-quote">
-              <h1>Add Quote</h1>
-            </Link>
-          </li>
         </ul>
       </nav>
     </header>

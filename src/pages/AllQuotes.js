@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react';
+import { Fragment, useState } from 'react';
 import QuoteList from '../components/quotes/QuoteList';
 import Card from '../components/UI/Card';
 import classes from './AllQuotes.module.css';

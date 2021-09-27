@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import classes from './NewCommentForm.module.css';
 
-const NewCommentForm = () => {
+const NewCommentForm = props => {
   const commentTextRef = useRef();
   const params = useParams();
   const id = params.id;
@@ -15,12 +15,12 @@ const NewCommentForm = () => {
       };
 
       const res = await fetch(
-        `https://user-comments-project-default-rtdb.europe-west1.firebasedatabase.app/${id}.json`,
+        `https://user-comments-project-default-rtdb.europe-west1.firebasedatabase.app/user-comments/${id}.json`,
         {
-          method: 'POST',
+          method: 'PUT',
           body: JSON.stringify(newComment),
           headers: {
-            'Content-Type:': 'application/json',
+            'Content-Type': 'application/json',
           },
         }
       );
@@ -36,7 +36,6 @@ const NewCommentForm = () => {
   const submitFormHandler = event => {
     event.preventDefault();
 
-    // optional: Could validate here
     const enteredComment = {
       id: Math.random(),
       text: commentTextRef.current.value,
@@ -44,6 +43,8 @@ const NewCommentForm = () => {
 
     postCommentHandler(enteredComment);
     commentTextRef.current.value = null;
+
+    props.commentSubmitted();
   };
 
   // see if I need to change the second onSubmit handler

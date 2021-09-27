@@ -17,7 +17,7 @@ const QuoteDetails = () => {
   const fetchUserComments = useCallback(async () => {
     try {
       const res = await fetch(
-        `https://user-comments-project-default-rtdb.europe-west1.firebasedatabase.app/${id}.json`
+        `https://user-comments-project-default-rtdb.europe-west1.firebasedatabase.app/user-comments/${id}.json`
       );
       if (!res.ok) {
         throw new Error('Fetching comments failed.');
