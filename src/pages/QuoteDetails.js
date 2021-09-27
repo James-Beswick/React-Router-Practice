@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 
 import Comments from '../components/comments/Comments';
@@ -10,11 +10,11 @@ import Card from '../components/UI/Card';
 const QuoteDetails = () => {
   const [comments, setComments] = useState([]);
   const location = useLocation();
-  const params = useParams();
   const { author, text } = location.state;
+  const params = useParams();
   const id = params.id;
 
-  const fetchUserComments = useCallback(async () => {
+  const fetchUserComments = async () => {
     try {
       const res = await fetch(
         `https://user-comments-project-default-rtdb.europe-west1.firebasedatabase.app/user-comments/${id}.json`
@@ -36,11 +36,12 @@ const QuoteDetails = () => {
     } catch (err) {
       alert(err);
     }
-  }, [id]);
+  };
 
   useEffect(() => {
     fetchUserComments();
-  }, [fetchUserComments]);
+    // eslint-disable-next-line
+  }, [id]);
 
   return (
     <Fragment>
